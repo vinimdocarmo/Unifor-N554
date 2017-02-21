@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="pt">
+<html lang="pt" ng-app="SistemaAcademico">
 <head>
 	<meta charset="UTF-8">
 	<title>Cadastro Disciplina</title>		
 </head>
-<body>
+<body ng-controller="DisciplinaController">
 	
 	<form name="formDisciplinas">
 	<label>Código</label>
-	<input type="text" name="codigo">
+	<input type="text" ng-model="disciplina.codigo" name="codigo">
 
 	<label>Nome</label>
-	<input type="text" name="nome">	
+	<input type="text" ng-model="disciplina.nome" name="nome">	
 
-	<button>Gravar</button>
+	<button ng-click="gravar()">Gravar</button>
 	</form>
 
-	 <table>
+	 <table ng-if="listaDisciplinas.length > 0">
 		<thead>
 			<tr>				
 				<th>Código</th>	
@@ -24,19 +24,27 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>			
+			<tr ng-repeat="disciplina in listaDisciplinas">			
 				<td>					
-					<input type="text" readonly="true" size="5">
+					<input type="text" readonly="true" size="5" ng-model="disciplina.codigo">
 				</td>	
 				<td>
-					<input type="text" readonly="true" size="30">
+					<input type="text" readonly="true" size="30" ng-model="disciplina.nome">
 				</td>
 				<td>					
-					<button>Remover</button>					
+					<button ng-click="remover(disciplina)">Remover</button>					
 				</td>
 			</tr>
 		</tbody>
 	</table> 	
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="js/main.js"></script>
+<script src="js/DisciplinaController.js"></script>	
+
+
+
+
 	
 </body>
 
