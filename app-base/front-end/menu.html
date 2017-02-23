@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt" >
+<html lang="pt" ng-app="SistemaAcademico">
 <head>
 <meta charset="UTF-8">
 <title>Sistema Acadêmico</title>
 
-<!--Imports externos: angular, bootstrap e jquery -->
-
-
-<!--Imports internos: main e controllers -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
 </head>
@@ -22,18 +20,18 @@
                     <li class="dropdown">
                         <a href="" data-toggle="dropdown" class="dropdown-toggle">Turma <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Cadastro</a></li>
+                            <li><a href="#/turmaCadastro">Cadastro</a></li>
                             <li><a href="">Busca</a></li>                                                      
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="" data-toggle="dropdown" class="dropdown-toggle">Aluno <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Cadastro</a></li>
-                            <li><a href="">Busca</a></li>                                                      
+                            <li><a href="#/alunoCadastro">Cadastro</a></li>
+                            <li><a href="">Busca</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Disciplina</a></li>                    
+                    <li><a href="#/disciplinaCadastro">Disciplina</a></li>
                     
                 </ul>                
             </div>
@@ -42,6 +40,18 @@
     
     <div ng-view></div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+<script src="js/main.js"></script>
+<script src="js/AlunoController.js"></script>
+<script src="js/TurmaController.js"></script>
+<script src="js/DisciplinaController.js"></script>
 
 </body>
 </html>                                     
