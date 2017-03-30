@@ -2,16 +2,16 @@ var app = angular
     .module('SistemaAcademico', ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
-            .when('/alunoCadastro', {
-                templateUrl: 'aluno.html',
-                controller: 'AlunoController'
+            .when('/inicio', {
+                templateUrl: 'inicio.html',
+                controller: 'InicioMetaController'
             })
-            .when('/turmaCadastro', {
-                templateUrl: 'turma.html',
-                controller: 'TurmaController'
+            .when('/metaCadastro', {
+                templateUrl: 'cadastroMeta.html',
+                controller: 'CadastroMetaController'
             })
-            .when('/disciplinaCadastro', {
-                templateUrl: 'disciplina.html',
-                controller: 'DisciplinaController'
+            .when('/metaEdicao', {
+                templateUrl: 'edicaoMeta.html',
+                controller: 'EdicaoMetaController'
             });
     });

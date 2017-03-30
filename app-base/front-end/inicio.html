@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Buscar metas..." ng-model="textoBusca">
+            <br>
+            <section>
+                <div ng-if="MetasHandler.getMetas().length === 0">
+                    <h3>Nenhama meta casdastrada :(</h3>
+                    <a href="#/metaCadastro" class="btn btn-success">Cadastrar Meta</a>
+                </div>
+                <ul class="list-group" ng-if="MetasHandler.getMetas().length > 0">
+                    <li class="list-group-item" ng-repeat="meta in MetasHandler.getMetas() | buscarMetas:textoBusca"
+                        ng-style="{ 'background-color': calcularPorcentagemDeAtingimento(meta) == 100 ? 'rgba(0, 191, 85, .5)' : none }">
+                        <i class="glyphicon glyphicon-unchecked" ng-if="calcularPorcentagemDeAtingimento(meta) != 100"></i>
+                        <i class="glyphicon glyphicon-ok" ng-if="calcularPorcentagemDeAtingimento(meta) == 100"></i>
+                        <h4 style="display: inline-block">{{meta.descricao}}</h4>
+                        <ul>
+                            <li ng-repeat="tarefa in meta.tarefas">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-model="tarefa.feita"> {{tarefa.descricao}}
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                 ng-style="{ width: calcularPorcentagemDeAtingimento(meta) + '%' }">
+                                {{calcularPorcentagemDeAtingimento(meta)}}%
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#/metaEdicao" class="btn btn-warning btn-xs" ng-click="MetasHandler.setMetaParaEditar(meta)">editar</a>
+                            <button class="btn btn-default btn-xs" ng-click="MetasHandler.removerMeta(meta)">excluir</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
