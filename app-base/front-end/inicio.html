@@ -8,6 +8,7 @@
                     <h3>Nenhama meta casdastrada :(</h3>
                     <a href="#/metaCadastro" class="btn btn-success">Cadastrar Meta</a>
                 </div>
+                <h2 ng-if="MetasHandler.getMetas().length !== 0">Minhas Metas</h2>
                 <ul class="list-group" ng-if="MetasHandler.getMetas().length > 0">
                     <li class="list-group-item" ng-repeat="meta in MetasHandler.getMetas() | buscarMetas:textoBusca"
                         ng-style="{ 'background-color': calcularPorcentagemDeAtingimento(meta) == 100 ? 'rgba(0, 191, 85, .5)' : none }">
